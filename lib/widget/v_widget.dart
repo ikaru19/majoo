@@ -143,3 +143,78 @@ class VButton extends StatelessWidget {
     );
   }
 }
+
+class VInputText extends StatelessWidget {
+  final TextInputType keyboardType;
+  final String hint;
+  final TextEditingController controller;
+  final TextCapitalization capitalization;
+  final validator;
+  final onSaved;
+  final double height;
+  final double padding;
+  final onChange;
+  final initialValue;
+  final suffixIcon;
+  final prefixIcon;
+  final bool enabled;
+  final bool readOnly;
+  final int maxLines;
+  final int minLines;
+
+  VInputText(
+      this.hint, {
+        this.keyboardType,
+        this.height,
+        this.padding = 10,
+        this.readOnly = false,
+        this.controller,
+        this.validator,
+        this.onSaved,
+        this.initialValue,
+        this.enabled = true,
+        this.onChange,
+        this.suffixIcon,
+        this.prefixIcon,
+        this.maxLines,
+        this.minLines,
+        this.capitalization = TextCapitalization.none,
+      });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      enabled: enabled,
+      initialValue: initialValue ?? null,
+      controller: controller ?? null,
+      decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.blue),
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey[300]),
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        hintText: hint,
+        contentPadding: EdgeInsets.all(padding),
+        hintStyle: TextStyle(fontFamily: "poppins"),
+        suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
+      ),
+      keyboardType: this.keyboardType ?? TextInputType.text,
+      style: TextStyle(
+          fontFamily: "poppins",
+          color: enabled ? Colors.black : Colors.grey.withOpacity(0.6)),
+      textCapitalization: capitalization,
+      validator: validator,
+      onSaved: onSaved,
+      onChanged: onChange,
+      maxLines: maxLines,
+      minLines: minLines,
+      readOnly: readOnly,
+    );
+  }
+}

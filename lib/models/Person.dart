@@ -16,6 +16,8 @@ class Person {
   String edited;
   String url;
 
+  Person();
+
 	Person.fromJsonMap(Map<String, dynamic> map):
 		id = map["id"],
 	  isFav = map["isFav"],
