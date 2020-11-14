@@ -38,16 +38,8 @@ class _AuthScreenState extends State<AuthScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Lottie.asset(
-            'assets/lottie/baby_yoda.json',
-            height: 100,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          vText(
-            "The Adventure is waiting for you",
-            fontSize: 16,
-            poppins: true,
+            'assets/lottie/star_wars_logo.json',
+            height: 200,
           ),
           SizedBox(
             height: 20,

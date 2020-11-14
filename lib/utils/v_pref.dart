@@ -2,83 +2,49 @@ import 'dart:convert';
 
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:xenditkeyboard/models/auth/login/login_response.dart';
-import 'package:xenditkeyboard/models/auth/register/register_response.dart';
-import 'package:xenditkeyboard/models/profile/profile.dart';
-import 'package:xenditkeyboard/providers/profile/profile_state.dart';
-import 'package:xenditkeyboard/providers/store/store_state.dart';
-import 'package:xenditkeyboard/providers/transaksi/create_transaction_state.dart';
 
 class VPref {
-  static saveRegisToken(RegisterResponse data) async {
+
+
+  static setIsLogin(bool login) async {
     var ref = await SharedPreferences.getInstance();
-    ref.setString("regisToken", data.data.token);
+    ref.setBool("isLogin", login);
   }
 
-  static Future<String> getRegisToken() async {
+  static Future<bool> getIsLogin() async {
     var ref = await SharedPreferences.getInstance();
-    return ref.getString("regisToken");
+    return ref.getBool("isLogin");
   }
 
-  static Future<Map<String, String>> getHeaderRegisToken() async {
+  static setEmail(String email) async {
     var ref = await SharedPreferences.getInstance();
-    return {"Authorization": "Bearer ${ref.getString("regisToken")}"};
+    ref.setString("email", email);
+
   }
 
-  static saveToken(LoginResponse data) async {
+  static Future<String> getEmail() async {
     var ref = await SharedPreferences.getInstance();
-    ref.setString("token", data.data.token);
+    return ref.getString("email");
   }
 
-  static Future<String> getToken() async {
+  static setPhotoUrl(String photo) async {
     var ref = await SharedPreferences.getInstance();
-    return ref.getString("token");
+    ref.setString("photo", photo);
   }
 
-  static saveFirebaseToken(String token) async {
+  static Future<String> getPhotoUrl() async {
     var ref = await SharedPreferences.getInstance();
-    ref.setString("firebase_token", token);
+    return ref.getString("photo");
   }
 
-  static Future<String> getFirebaseToken() async {
+  static setName(String name) async {
     var ref = await SharedPreferences.getInstance();
-    return ref.getString("firebase_token");
+    ref.setString("name", name);
   }
 
-  static Future<Map<String, String>> getHeader() async {
+  static Future<String> getName() async {
     var ref = await SharedPreferences.getInstance();
-    return {"Authorization": "Bearer ${ref.getString("token")}"};
-  }
-
-  static savePhone(String data) async {
-    var ref = await SharedPreferences.getInstance();
-    ref.setString("phone", data);
-  }
-
-  static Future<String> getPhone() async {
-    var ref = await SharedPreferences.getInstance();
-    return ref.getString("phone");
-  }
-
-  static saveProfile(Profile data) async {
-    var ref = await SharedPreferences.getInstance();
-    ref.setString("profile", jsonEncode(data));
-  }
-
-  static Future<Profile> getProfile() async {
-    var ref = await SharedPreferences.getInstance();
-    if (ref.getString("profile") == null) return null;
-    return Profile.fromJsonMap(jsonDecode(ref.getString("profile")));
-  }
-
-  static Future<bool> getIsCash() async {
-    var ref = await SharedPreferences.getInstance();
-    return ref.getBool("isCash");
-  }
-
-  static setIsCash(bool isCash) async {
-    var ref = await SharedPreferences.getInstance();
-    ref.setBool("isCash", isCash);
+    return ref.getString("name");
   }
 
   static Future<bool> getIsFirst() async {
@@ -94,11 +60,7 @@ class VPref {
   static Future clearAll(context) async {
     var ref = await SharedPreferences.getInstance();
     ref.clear();
-    Provider.of<CreateTransactionState>(context, listen: false).clearAll();
-    Provider.of<StoreState>(context, listen: false).clearAll();
-    Provider.of<ProfileState>(context, listen: false).clearAll();
-
-    setIsFirst(false);
+    setIsFirst(true);
     return;
   }
 }
