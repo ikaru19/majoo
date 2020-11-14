@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "111968303906",
+    "firebase_url": "https://majoo-882d5.firebaseio.com",
+    "project_id": "majoo-882d5",
+    "storage_bucket": "majoo-882d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111968303906:android:ee4e00d1204cffe8de437b",
+        "android_client_info": {
+          "package_name": "com.example.majoo_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111968303906-uku1qd6hkiu0injbl8qt0beukg0q0188.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.majoo_test",
+            "certificate_hash": "c31cda5b90b96b5d79f491543b035dc0a2324103"
+          }
+        },
+        {
+          "client_id": "111968303906-mj7s0bjum16i8uo3mv28ba2r2cnd0tef.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy58s5-yFHRQn3ozGb1_MK55btW0c5gvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111968303906-mj7s0bjum16i8uo3mv28ba2r2cnd0tef.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
